@@ -1,0 +1,360 @@
+<!--
+    
+   _____            __.__ __            
+  /     \  __ __   |__|__|  | _______   
+ /  \ /  \|  |  \  |  |  |  |/ /\__  \  
+/    Y    \  |  /  |  |  |    <  / __ \_
+\____|__  /____/\__|  |__|__|_ \(____  /
+        \/     \______|       \/     \/ 
+
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Album Cover Downloader : Télécharger des pochettes d'albums gratuitement</title>
+    <meta name="description" content="Album Cover Downloader vous permet de télécharger n'importe quelle pochette d'album en haute qualité de manière rapide et gratuite.">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='img/AlbumCoverDownloader/icon.ico') }}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<style>
+    :root {
+    --color-green: #588157;
+    --color-green-hover: #3a5a40;
+    --color-grey: #F2F2F2;
+    --color-gray-hover: #e0e0e0;
+    }
+
+    html, body {
+        padding: 0% 15% 0% 15%;
+        margin: 0;
+        font-family: 'Manrope', sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    header {
+        padding-top: 40px;
+        padding-bottom: 20px;
+        text-align: center;
+    }
+
+    header .logo {
+        width: 75px;
+        border-radius: 20px;
+    }
+
+    header h1 {
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    .search {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .search .search-txt {
+        flex: 2 1 auto;
+        font-family: 'Manrope', sans-serif;
+        font-weight: 500;
+        background-color: var(--color-grey);
+        border: 0px;
+        border-radius: 10px;
+        padding: 10px;
+        margin-right: 5px;
+
+    }
+
+    .search .search-btn {
+        flex: 1 2 auto;
+        font-family: 'Manrope', sans-serif;
+        color: #FFFFFF;
+        font-weight: 500;
+        background-color: var(--color-green);
+        border: none;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 5px;
+    }
+
+    .search .search-btn:hover {
+        background-color: var(--color-green-hover);
+    }
+
+    .results {
+        width: 100%;
+        display: inline-flex;
+        margin-top: 20px;
+    }
+
+    .results .list {
+        background-color: var(--color-grey);
+        border-radius: 20px;
+        padding-bottom: 20px;
+        min-width: 60%;
+        min-height: 350px;
+        max-height: 545px;
+        overflow: auto;
+    }
+
+    .results .list p {
+        padding: 0px;
+        margin-left: 10px;
+        margin-top: 10px;
+        font-weight: 500;
+        font-size: 0.9em;
+    }
+
+    .results .list input {
+        width: 100%;
+        background-color: transparent;
+        text-align: left;
+        border: none;
+        padding: 8px;
+        padding-left: 10px;
+        font-size: 0.9em;
+        color: #000000;
+    }
+
+    .results .list input:hover {
+        background-color: var(--color-gray-hover);
+    }
+
+    .results .album {
+        padding: 20px;
+        padding-right: 0px;
+        padding-bottom: 0px;
+    }
+
+    .results .album h2 {
+        margin: 0px;
+        color: var(--color-green);
+        font-weight: 800;
+        font-size: 15px;
+    }
+
+    .results .album p {
+        margin: 0px;
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+
+    .results .album img {
+        min-width: 100%;
+        max-width: 100%;
+        border-radius: 20px;
+        margin-bottom: -5px;
+        padding: 0px;
+    }
+
+    .results .album a {
+        margin: 0px;
+        margin-bottom: 15px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .results .album .inline-container {
+        display: flex;
+    }
+
+    .results .album .inline-container .inline-container-in {
+        padding-right: 40px;
+    }
+
+    .download {
+        padding-bottom: 20px;
+    }
+
+    .download input {
+        width: 100%;
+        flex: 1 2 auto;
+        font-family: 'Manrope', sans-serif;
+        color: #FFFFFF;
+        font-weight: 500;
+        background-color: var(--color-green);
+        border: none;
+        border-radius: 20px;
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .download input:hover {
+        background-color: var(--color-green-hover);
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: #000000;
+    }
+
+    @media (max-width: 800px) {
+
+        html, body {
+            padding: 0% 5% 0% 5%;
+            margin: 0;
+            font-family: 'Manrope', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .results {
+            display: inline;
+        }
+
+        .results .list {
+            flex: none;
+            margin-top: 20px;
+        }
+
+        .results .list p {
+            padding-top: 10px;
+        }
+
+        .results .album {
+            flex: none;
+            padding: 0px;
+            padding-top: 10px;
+        }
+
+    }
+</style>
+<body>
+    <header>
+        <a href="#"><img src="{{ url_for('static', filename='img/AlbumCoverDownloader/logo.png') }}" alt="" class="logo"></a>
+        <h1>Album Cover Downloader</h1>
+    </header>
+
+    <section>
+        <div class="search">
+            <input type="text" id="search-txt" placeholder="Rechercher un album ou un artiste..." class="search-txt">
+            <input type="button" id="search-btn" value="Rechercher" class="search-btn" onclick="search()">
+        </div>
+        <div class="results">
+            <div id="list" class="list">
+                <p>Les albums :</p>
+                <div id="elements">
+                    <input type="button" value="Hiver à Paris - Dinos"><br>
+                </div>
+                
+            </div>
+            <div class="album">
+                <h2>Album</h2>
+                <p id=title>Hiver à Paris</p>
+
+                <h2>Artise</h2>
+                <p id="artist">Dinos</p>
+
+                <div class="inline-container">
+                    <div class="inline-container-in">
+                        <h2>Titres</h2>
+                        <p id="tracks">21</p>
+                    </div>
+
+                    <div>   
+                        <h2>Lien</h2>
+                        <a id="link" href="https://www.deezer.com/en/album/372074257">Cliquer ici</a>
+                    </div>
+                </div>
+
+                <img id="cover" alt="resources/images/exemple.jpeg" src="{{ url_for('static', filename='img/AlbumCoverDownloader/exemple.jpeg') }}">
+            </div>
+        </div>
+
+        <div class="download">
+            <input type="button" value="Télécharger" onclick="download();">
+        </div>
+
+        <footer>
+            <p>Développé avec &lt;3 par <a href="https://github.com/johanldx" target="_blank">Johan Ledoux</a></p>
+        </footer>
+        
+        <div id="dz-root"></div>
+    </section>
+    
+    <script src="https://e-cdn-files.dzcdn.net/js/min/dz.js"></script>
+    <script>
+        const searchTxt = document.getElementById("search-txt");
+        const searchBtn = document.getElementById("search-btn");
+        const list = document.getElementById("elements");
+
+        const title = document.getElementById("title");
+        const artist = document.getElementById("artist");
+        const tracks = document.getElementById("tracks");
+        const link = document.getElementById("link");
+        const cover = document.getElementById("cover");
+
+        let albums_list = []
+
+        function search() {
+            DZ.api("/search/album?q="+searchTxt.value, function(response) {
+                searchTxt.value = "";
+                list.innerHTML = "";
+                albums_list = [];
+
+                for (let i = 0; i < response.data.length; i++) {
+
+                    var album = document.createElement("input");
+            
+                    album.type = "button";
+                    album.value = response.data[i].title + " - " + response.data[i].artist.name;
+                    album.setAttribute("onclick", "updateData(" + i + ");");
+
+                    list.appendChild(album);
+                    list.appendChild(document.createElement("br"));
+
+                    albums_list.push({
+                        "title": response.data[i].title,
+                        "artist": response.data[i].artist.name,
+                        "tracks": response.data[i].nb_tracks,
+                        "cover_xl": response.data[i].cover_xl,
+                        "link": response.data[i].link
+                    })
+                }
+            });
+        }
+
+        function updateData(number) {
+            title.innerText = albums_list[number].title;
+            artist.innerText = albums_list[number].artist;
+            tracks.innerText = albums_list[number].tracks; 
+            link.setAttribute("href", albums_list[number].link);
+            link.setAttribute("target", "_blank");
+            cover.src = albums_list[number].cover_xl;
+            cover.alt = albums_list[number].title;
+        }
+
+        function download() {
+            var url = cover.src
+
+            fetch(url).then(res => res.blob()).then(file => {
+                let tempUrl = URL.createObjectURL(file);
+                const aTag = document.createElement("a");
+                aTag.href = tempUrl;
+                aTag.download = (title.innerText + " - " + artist.innerText + ".jpeg").replace(/^.*[\\\/]/, '');
+                document.body.appendChild(aTag);
+                aTag.click();
+                URL.revokeObjectURL(tempUrl);
+                aTag.remove();
+            }).catch(() => {
+                alert("Failed to download file!");
+            });
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.code === "Enter") {
+                search();
+            }
+        });
+    </script>
+</body>
+</html>

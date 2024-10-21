@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johan Ledoux | Développeur Web Full-Stack | Theed</title>
+    <meta name="description" content="Découvrez Johan Ledoux, développeur web full-stack et low-code. Explorez ses projets et contactez-le pour collaborer sur des solutions innovantes.">
+
+    <!-- Hotjar Tracking Code for https://johan.theed.fr -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:5127293,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Johan Ledoux | Développeur Web Full-Stack | Theed">
+    <meta property="og:description" content="Découvrez Johan Ledoux, développeur web full-stack et low-code. Explorez ses projets et contactez-le pour collaborer sur des solutions innovantes.">
+    <meta property="og:image" content="{{ url_for('static', filename='img/favicon.png', _external=True) }}">
+    <meta property="og:url" content="https://johan.theed.fr">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Johan Ledoux | Développeur Web Full-Stack | Theed">
+    <meta name="twitter:description" content="Découvrez Johan Ledoux, développeur web full-stack et low-code. Explorez ses projets et contactez-le pour collaborer sur des solutions innovantes.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='img/favicon.png', _external=True) }}">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/img/favicon.png') }}" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=author@1,2&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+</head>
+<style>
+    .font-author {
+        font-family: 'Author', sans-serif;
+    }
+
+    .font-dm-sans {
+        font-family: "DM Sans", sans-serif;
+    }
+    .text-green-theed {
+        color: #14C38E;
+    }
+</style>
+<body class="lg:mx-40 lg:my-10 md:mx-20 md:my-5 mx-5 my-5 font-dm-sans">
+    <div class="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px),linear-gradient(to_top,white,transparent)] bg-[size:14px_24px]"></div>
+    <header class="flex justify-between">
+        <div class="flex">
+            <a href="#" class="text-2xl font-author font-bold text-green-theed">Theed</a>
+            <img class=" ml-1 w-5 object-contain" src="{{ url_for('static', filename='/img/logo_theed.png') }}" alt="">
+        </div>
+
+        <nav>
+            <a href="{{ url_for('link', name='cv') }}" target="_blank" class="btn btn-sm sm:inline-flex hidden">Voir mon CV</a>
+            <a href="{{ url_for('link', name='github') }}" target="_blank" class="btn btn-sm btn-primary" style="background-color: #2B3137; border-color: #24292E; color: #FFFFFF;">Voir mon Github</a>
+        </nav>
+    </header>
+
+    <div class="my-20">
+        <h1 class="mx-auto text-center w-5/6 font-author font-bold md:text-6xl text-5xl" style="background: linear-gradient(93deg, #000000, #506E8C); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Développeur Web Full-Stack & Low Code !!</h1>
+        <p class="my-5 mx-auto text-center w-4/5">
+            👋 Je m’appelle Johan Ledoux, je suis développeur web full-stack et low-code 👨‍💻 chez 
+            <span class="badge badge-secondary">Jaiio</span>, responsable du développement commercial 👨‍💼 chez 
+            <span class="badge badge-primary">Nexus ESGI Junior Conseil</span> et un fan d'API !
+        </p>
+    </div>
+
+    <div class="my-20">
+        <h2 class="text-center font-author font-bold text-3xl">Mes projets</h2>
+
+        <div class="flex flex-wrap justify-center gap-6 my-10 max-w-screen-lg mx-auto">
+            <div class="card card-compact bg-base-100 w-72 shadow-xl">
+                <figure>
+                    <img src="{{ url_for('static', filename='img/quickbee.png') }}" alt="Quickbee website"/>
+                </figure>
+                <div class="card-body">
+                    <div class="badge badge-gost">PHP natif</div>
+                    <h2 class="card-title">Quickbee</h2>
+                    <p>SaaS de gestion de facturation</p>
+                    <div class="card-actions">
+                        <a href="{{ url_for('link', name='quickbee-project') }}" target="_blank" class="btn btn-sm btn-neutral">Voir le projet</a>
+                        <a href="{{ url_for('link', name='quickbee-code') }}" target="_blank" class="btn btn-sm">Voir le code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-compact bg-base-100 w-72 shadow-xl">
+                <figure>
+                    <img src="{{ url_for('static', filename='img/theed_website.png') }}" alt="Theed website"/>
+                </figure>
+                <div class="card-body">
+                    <div class="flex space-x-2">
+                        <div class="badge badge-gost">Synology DiskStation® DS923+</div>
+                    </div>
+                    <h2 class="card-title">Theed</h2>
+                    <p>Mise en place de services et une infrastructure sur NAS</p>
+                    <div class="card-actions">
+                        <a href="{{ url_for('link', name='theed-project') }}" target="_blank" class="btn btn-sm btn-neutral">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card card-compact bg-base-100 w-72 shadow-xl">
+                <figure>
+                    <img src="{{ url_for('static', filename='img/theedcdn.png') }}" alt="TheedCDN website"/>
+                </figure>
+                <div class="card-body">
+                    <div class="flex space-x-2">
+                        <div class="badge badge-gost">Django</div>
+                        <div class="badge badge-gost">Tailwind x DaizyUI</div>
+                    </div>
+                    <h2 class="card-title">TheedCDN</h2>
+                    <p>Dévelopment d'un réseau de diffusion de contenu</p>
+                    <div class="card-actions">
+                        <a href="{{ url_for('link', name='theedcdn-project') }}" target="_blank" class="btn btn-sm btn-neutral">Voir le projet</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-compact bg-base-100 w-72 shadow-xl">
+                <figure>
+                    <img src="{{ url_for('static', filename='img/blink.png') }}" alt="BlinkURL website"/>
+                </figure>
+                <div class="card-body">
+                    <div class="flex space-x-2">
+                        <div class="badge badge-gost">Django</div>
+                        <div class="badge badge-gost">Nginx</div>
+                    </div>
+                    <h2 class="card-title">BlinkURL</h2>
+                    <p>WebApp d’URL raccourcis</p>
+                    <div class="card-actions">
+                        <a href="{{ url_for('link', name='blinkurl-code') }}" target="_blank" class="btn btn-sm">Voir le code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-compact bg-base-100 w-72 shadow-xl">
+                <div class="card-body">
+                    <div class="badge badge-gost">Python</div>
+                    <h2 class="card-title">CryptoTrackerTelegram</h2>
+                    <p>Bot Telegram de suivi de cryptos</p>
+                    <div class="card-actions">
+                        <a href="{{ url_for('link', name='cryptotrackertelegram-code') }}" target="_blank" class="btn btn-sm">Voir le code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-compact bg-base-100 w-72 shadow-xl">
+                <div class="card-body">
+                    <div class="flex space-x-2">
+                        <div class="badge badge-gost">HTML</div>
+                        <div class="badge badge-gost">CSS</div>
+                        <div class="badge badge-gost">JS</div>
+                    </div>
+                    <h2 class="card-title">AlbumCoverDownloader</h2>
+                    <p>Téléchargement de pochettes d’albums</p>
+                    <div class="card-actions">
+                        <a href="{{ url_for('link', name='albumcoverdownloder-project') }}" target="_blank" class="btn btn-sm btn-neutral">Voir le projet</a>
+                        <a href="{{ url_for('link', name='albumcoverdownloder-code') }}" target="_blank" class="btn btn-sm">Voir le code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="{{ url_for('link', name='github') }}" target="_blank" class="btn btn-ghost">Voir plus</a>
+        </div>
+        
+    </div>
+
+    <div class="my-20">
+        <h2 class="text-center font-author font-bold text-3xl">Mon scope technique</h2>
+
+        <div class="flex flex-wrap justify-center gap-8 my-10 max-w-screen-lg mx-auto">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_django.png') }}" alt="Django">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_flask.png') }}" alt="Flask">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_tailwind.png') }}" alt="Tailwind">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_aws.svg') }}" alt="AWS">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_docker.png') }}" alt="Docker">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_shopify.png') }}" alt="Shopify">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_airtable.png') }}" alt="Airtable">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_make.png') }}" alt="Make">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_metabase.webp') }}" alt="Metabase">
+            <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_synology.jpg') }}" alt="Synology">
+            <!-- <img class="w-32 object-contain" src="{{ url_for('static', filename='img/logo_php.png') }}" alt="PHP"> -->
+        </div>
+
+    </div>
+
+    <div class="my-20 flex flex-wrap justify-around gap-12 max-w-screen-lg mx-auto">
+        <div>
+            <h2 class="text-center font-author font-bold text-3xl">Me retrouver</h2>
+            <div>
+                <a href="{{ url_for('link', name='github') }}" target="_blank" class="btn btn-sm btn-primary text-center w-full max-w-40 mt-5" style="background-color: #2B3137; border-color: #24292E; color: #FFFFFF;">Mon Github</a> <br>
+                <a href="{{ url_for('link', name='linkedin') }}" target="_blank" class="btn btn-sm btn-primary text-center w-full max-w-40 mt-5" style="background-color: #0E76A8; border-color: #0D6690; color: #FFFFFF;">Mon Linkedin</a> <br>
+            </div>
+        </div>
+        <div>
+            <h2 class="text-center font-author font-bold text-3xl">Me contacter</h2>
+            <a href="mailto:johan.ledoux25@gmail.com" target="_blank" class="btn btn-sm btn-primary text-center w-full max-w-40 mt-5" style="background-color: #E53935; border-color: #CA2D29; color: #FFFFFF;">Par mail</a> <br>
+            <a href="{{ url_for('link', name='phone') }}" target="_blank" class="btn btn-sm btn-primary text-center w-full max-w-40 mt-5" style="background-color: #25D366; border-color: #20C25C; color: #FFFFFF;">Par téléphone</a> <br>
+            <a href="" class="btn btn-sm btn-primary text-center w-full mt-5" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/johanledoux/prise-de-contact'});return false;">Organiser un call</a>
+        </div>
+    </div>
+
+    <footer class="text-center mt-10">
+        <img class="mx-auto w-12 object-contain" src="{{ url_for('static', filename='img/logo_theed.png') }}" alt="">
+        <a href="#" class="text-2xl font-author font-bold text-green-theed">Theed</a>
+        <br>
+    </footer>
+</body>
+</html>
